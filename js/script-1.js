@@ -756,64 +756,148 @@
 // ------------------------------task 35------------------------------
 
 // const bookShelf = {
-//   books: ["The last kingdom", "Haze", "The guardian of dreams"],  
+//   books: ["The last kingdom", "Haze", "The guardian of dreams"],
 //   updateBook(oldName, newName) {
 //     // Change code below this line
-
-//     const newArray = bookShelf.books.slice();      
-//     const newBook = newArray.indexOf(oldName);    
-//     newArray.splice(newBook, 1, newName);    
-//     return newArray;
+//     for (const book of this.books) {
+//       if (book === oldName) {
+//         this.books.splice(this.books.indexOf(book), 1, newName);
+//       }
+//     }
+//     return bookShelf;
 
 //     // Change code above this line
 //   },
 // };
-// // console.log(bookShelf.books);
-// // console.log(bookShelf.books.indexOf(oldName));
+
 // console.log(bookShelf.updateBook("Haze", "Dungeon chronicles"));
 // console.log(bookShelf.updateBook("The last kingdom", "Dune"));
-// // console.log(bookShelf.updateBook("Dune", "The guardian of dreams"));
 
+// ------------------------------task 36------------------------------
 
+// const atTheOldToad = {
+//   // Change code below this line
+//   potions: [],
 
-// --------------- Варіант так собі, але дієвий-----------------
+//   // Change code above this line
+// };
 
-const bookShelf = {
-  books: ["The last kingdom", "Haze", "The guardian of dreams"],
-  updateBook(oldName, newName) {
-    // Change code below this line
-    for (const book of this.books) {
-      if (book === oldName) {
-        this.books.splice(this.books.indexOf(book), 1, newName);
-      }
-    }
-    return bookShelf;
+// console.log(atTheOldToad.potions);
 
-    // Change code above this line
+// ------------------------------task 37------------------------------
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   // Change code below this line
+//   getPotions() {
+//     return this.potions;
+//   },
+//   // Change code above this line
+// };
+
+// console.log(atTheOldToad.getPotions());
+
+// ------------------------------task 38------------------------------
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   addPotion(potionName) {
+//     // Change code below this line
+
+//     return this.potions.push(potionName);
+
+//     // Change code above this line
+//   },
+// };
+
+// console.log(atTheOldToad.potions);
+// console.table(atTheOldToad.addPotion('Invisibility'));
+// console.log(atTheOldToad.potions);
+// console.log(atTheOldToad.addPotion('Power potion'));
+// console.log(atTheOldToad.potions);
+
+// ------------------------------task 39------------------------------
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   removePotion(potionName) {
+//     // Change code below this line
+//     return this.potions.splice(this.potions.indexOf(potionName), 1);
+//     // Change code above this line
+//   },
+// };
+
+// console.log(atTheOldToad.potions);
+// console.log(atTheOldToad.removePotion('Dragon breath'));
+// console.log(atTheOldToad.potions);
+// console.log(atTheOldToad.removePotion('Speed potion'));
+// console.log(atTheOldToad.potions);
+
+// ------------------------------task 40------------------------------
+
+// const atTheOldToad = {
+//   potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+//   updatePotionName(oldName, newName) {
+//     // Change code below this line
+//     return this.potions.splice(this.potions.indexOf(oldName), 1, newName);
+
+//     // Change code above this line
+//   },
+// };
+
+// console.log(atTheOldToad.potions);
+// console.log(atTheOldToad.updatePotionName('Dragon breath', 'Polymorth'));
+// console.log(atTheOldToad.potions);
+// console.log(atTheOldToad.updatePotionName('Stone skin', 'Invisibility'));
+// console.log(atTheOldToad.potions);
+
+// ------------------------------task 41------------------------------
+
+const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Dragon breath", price: 780 },
+    { name: "Stone skin", price: 520 },
+  ],
+  // Change code below this line
+  getPotions() {
+    return this.potions;
   },
+  addPotion(newPotion) {
+    if (this.potions.includes(newPotion)) {
+      return `Error! Potion ${newPotion} is already in your inventory!`;
+    }
+
+    this.potions.push(newPotion);
+  },
+  removePotion(potionName) {
+    const potionIndex = this.potions.indexOf(potionName);
+
+    if (potionIndex === -1) {
+      return `Potion ${potionName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1);
+  },
+  updatePotionName(oldName, newName) {
+    const potionIndex = this.potions.indexOf(oldName);
+
+    if (potionIndex === -1) {
+      return `Potion ${oldName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1, newName);
+  },
+  // Change code above this line
 };
-// console.log(bookShelf.books);
-// console.log(bookShelf.books.indexOf(oldName));
-console.log(bookShelf.updateBook("Haze", "Dungeon chronicles"));
-console.log(bookShelf.updateBook("The last kingdom", "Dune"));
 
-// --------------- Варіант так собі -----------------
+console.log(atTheOldToad.getPotions());
 
-// const bookShelf = {
-//   books: ["The last kingdom", "Haze", "The guardian of dreams"],  
-//   updateBook(oldName, newName) {
-//     // Change code below this line
-//     const newBook = bookShelf.books.indexOf(oldName);
-    
-//    return bookShelf.books.splice(newBook, 1, newName);
-    
-     
+console.log(atTheOldToad.addPotion({ name: 'Invisibility', price: 620 }));
+console.log(atTheOldToad.getPotions());
 
-//     // Change code above this line
-//   },
-// };
-// // console.log(bookShelf.books);
-// // console.log(bookShelf.books.indexOf(oldName));
-// console.log(bookShelf.updateBook("Haze", "Dungeon chronicles"));
-// console.log(bookShelf.updateBook("The last kingdom", "Dune"));
-// // console.log(bookShelf.updateBook("Dune", "The guardian of dreams"));
+console.log(atTheOldToad.addPotion({ name: 'Power potion', price: 270 }));
+console.log(atTheOldToad.getPotions());
+
+console.log(atTheOldToad.addPotion({ name: 'Dragon breath', price: 780 }));
+console.log(atTheOldToad.getPotions());
